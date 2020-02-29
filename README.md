@@ -15,7 +15,7 @@ Assim, existem dois projetos que geram images que são utilizados para montar o 
 
 ```shell
 docker-compose up -d
-``
+``` 
 
 - Acesse a aplicação:
 
@@ -27,4 +27,4 @@ localhost:8095
 #Back
 localhost:8090/swagger-ui.html
 
-``
+``` 
