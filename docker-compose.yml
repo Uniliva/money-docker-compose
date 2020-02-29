@@ -1,0 +1,36 @@
+version: '3.4'
+services:
+  postDB:
+    image: postgres
+    container_name: "postDB"
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: unisenha
+    ports:
+      - "5432:5432" 
+    volumes:
+      - my_dbdata:/var/lib/postgresql/data
+    networks:
+      - money-network
+
+  money-api:
+    image: uniliva/money-api
+    container_name: "money-api"
+    restart: always
+    environment:
+      TZ: America/Sao_Paulo
+      SPRING_PROFILES_ACTIVE: docker
+    ports:
+      - "8090:8080" 
+    command: mvn spring-boot:run
+    depends_on:
+      - postDB
+    networks:
+      - money-network
+    
+volumes:
+  my_dbdata:
+
+networks:
+  money-network:
+    driver: bridge
