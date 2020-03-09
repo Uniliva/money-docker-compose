@@ -27,7 +27,20 @@ services:
       - postDB
     networks:
       - money-network
-    
+
+  money-front:
+    image: uniliva/money-front
+    container_name: "money-front"
+    restart: always
+    environment:
+      TZ: America/Sao_Paulo
+    ports:
+      - "8095:80" 
+    depends_on:
+      - money-api
+    networks:
+      - money-network
+
 volumes:
   my_dbdata:
 
