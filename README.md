@@ -22,9 +22,5 @@ docker-compose up -d
 
 ```shell
 # Front
-localhost:8095
-
-#Back
-localhost:8090/swagger-ui.html
-
+localhost:8095/login
 ``` 
